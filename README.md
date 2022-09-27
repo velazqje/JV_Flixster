@@ -43,6 +43,10 @@ GIF created with ...
 
 Describe any challenges encountered while building the app.
 
+Here are my logcat errors but I don't see any errors in the app.
+E/ContentValues: onFailure 500
+E/ple.jv_flixste: Unknown bits set in runtime_flags: 0x8000
+
 ## License
 
     Copyright [2022] [Jesseline Velazquez]
