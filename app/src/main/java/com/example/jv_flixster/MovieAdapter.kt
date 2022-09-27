@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.flixster.R
 
 //
 
@@ -20,7 +21,7 @@ import com.bumptech.glide.Glide
 
 private const val TAG = "MovieAdapter"
 
-class MovieAdapter(private val context: Context, private val movies: MutableList<Movie>) :
+class MovieAdapter(private val context: MainActivity, private val movies: MutableList<Movie>) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     @SuppressLint("LongLogTag")

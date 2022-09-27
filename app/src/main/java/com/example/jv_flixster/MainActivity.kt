@@ -6,7 +6,9 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
+import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.example.flixster.R
 import okhttp3.Headers
 
 //
@@ -15,6 +17,7 @@ import okhttp3.Headers
 //
 
 
+private const val API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
 
 const val NOW_PLAYING_URL= "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"
 
@@ -32,9 +35,12 @@ class MainActivity : AppCompatActivity(){
 
         val movieAdapter = MovieAdapter(this, movies)
         rvMovies.adapter = movieAdapter
-        rvMovies.layoutManager = LinearLayoutManager(this) //puts movies top to bottom
+        rvMovies.layoutManager = LinearLayoutManager(this)
 
         val client = AsyncHttpClient()
+        val params = RequestParams()
+        params["api-key"] = API_KEY
+
         client.get(NOW_PLAYING_URL, object : JsonHttpResponseHandler(){
             override fun onFailure(statusCode: Int, headers: Headers?, response: String?, throwable: Throwable?) {
                 Log.e(ContentValues.TAG, "onFailure $statusCode")
