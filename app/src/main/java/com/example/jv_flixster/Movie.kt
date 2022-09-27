@@ -1,20 +1,20 @@
-
+package com.example.jv_flixster
 import android.os.Parcelable
 import kotlinx.parcelize.IgnoredOnParcel
-import org.json.JSONArray
 import kotlinx.parcelize.Parcelize
+import org.json.JSONArray
 
 
 @Parcelize
 data class Movie (
-    val movieId: Int,
-    private val posterPath: String,
-    val title: String,
-    val overview: String,
+    val movieID: Int,
+    private val posterID: String,
+    val titleID: String,
+    val descriptionID: String,
 
 )  :Parcelable {
     @IgnoredOnParcel
-    val posterImageUrl: String ="https://image.tmdb.org/t/p/w342/$posterPath"
+    val posterImageURL: String ="https://image.tmdb.org/t/p/w342/$posterID"
 
     companion object {
         fun fromJsonArray(movieJsonArray: JSONArray): List<Movie> {
@@ -23,10 +23,10 @@ data class Movie (
                 val movieJson = movieJsonArray.getJSONObject(i)
                 movies.add(
                     Movie(
-                        movieJson.getInt("id"),
-                        movieJson.getString("poster_path"),
-                        movieJson.getString("title"),
-                        movieJson.getString("overview")
+                        movieJson.getInt("movieID"),
+                        movieJson.getString("posterID"),
+                        movieJson.getString("titleID"),
+                        movieJson.getString("descriptionID")
                     )
                 )
             }
