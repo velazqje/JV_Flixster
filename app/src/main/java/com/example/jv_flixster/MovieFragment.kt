@@ -1,7 +1,4 @@
-//package com.example.jv_flixster
-//
-//import com.example.flixster.R
-//
+
 ////
 //////
 ////
